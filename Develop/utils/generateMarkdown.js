@@ -13,7 +13,21 @@ function renderLicenseSection(license) {}
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
-  return `# Title: ${data.title}
+  return `
+  # Title: ${data.title}
+  ## Description: 
+  ## Table of contents
+  - [${data.}] (#${data.})
+  // repeat for other sections
+  ## License 
+  // return none/"" or badge url from render function
+  // Badge URLS based on type input https://img.shields.io/badge/MIT-license-red used as boiler plate
+  ## Contribute
+  // yes or no - if no - empty string
+  ## Tests
+  ## Questions 
+  // git hub link to profile
+  // instructions on how to touch base --- based on checkbox answer from previous
 
 `;
 }

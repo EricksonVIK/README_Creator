@@ -12,3 +12,8 @@ If your README is long, add a table of contents to make it easy for users to fin
 - [License](#license)
 
 ## Installation
+
+Generic repo license pull
+![badmath](https://img.shields.io/github/license/EricksonVIK/YodaIM)
+
+https://img.shields.io/badge/MIT-license-red

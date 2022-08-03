@@ -47,8 +47,39 @@ const questions = () => {
     {
         type: 'input',
         name: 'title',
-        messate: 'Enter your repo title.'
-    }
+        message: 'Enter your repo title.'
+    },
+
+    {
+        type: 'input',
+        name:'description',
+        message: 'Please add a description of your project.'
+    },
+
+    {
+        type: 'input',
+        name: 'installation',
+        message: 'Please describe the needed steps to install your project.'
+    },
+
+    {
+        type: 'input',
+        name: 'usage',
+        message: 'Please provide instructions and example usage.'
+    },
+
+    {
+        // badge question: checkbox for javascript, html, css
+    },
+
+    {
+        // yes/no question for contributions --- lead --- input how contribute question
+    },
+
+    {
+        // input tests question
+    },
+
 
     ]).then (function (userInput){
         const readmedata = generateMarkdown (userInput);
@@ -59,6 +90,7 @@ const questions = () => {
 function writeToFile(fileName, data) {
     fs.writeFileSync (fileName, data);
 }
+
 
 // TODO: Create a function to initialize app
 function init() {
