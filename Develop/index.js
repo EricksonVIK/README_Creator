@@ -69,16 +69,18 @@ const questions = () => {
     },
 
     {
-        // badge question: checkbox for javascript, html, css
+        type: 'input',
+        name: 'language',
+        message:'What is the primary language?'
     },
 
-    {
-        // yes/no question for contributions --- lead --- input how contribute question
-    },
+    // {
+    //     // yes/no question for contributions --- lead --- input how contribute question
+    // },
 
-    {
-        // input tests question
-    },
+    // {
+    //     // input tests question
+    // },
 
 
     ]).then (function (userInput){

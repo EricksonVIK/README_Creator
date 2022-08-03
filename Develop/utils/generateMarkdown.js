@@ -11,18 +11,26 @@ function renderLicenseLink(license) {}
 // If there is no license, return an empty string
 function renderLicenseSection(license) {}
 
+function renderBadge(data) {
+  console.log('called')
+  console.log('data.language')
+  return (`![badmath](https://img.shields.io/badge/language-${data.language}-blue)`)
+}
+
 // TODO: Create a function to generate markdown for README
-function generateMarkdown(data) {
+function generateMarkdown(data){
   return `
   # Title: ${data.title}
   ## Description: 
   ## Table of contents
-  - [${data.}] (#${data.})
+  - [Installation] (#installation)
   // repeat for other sections
   ## License 
   // return none/"" or badge url from render function
   // Badge URLS based on type input https://img.shields.io/badge/MIT-license-red used as boiler plate
-  ## Contribute
+  ## Badge
+  ${renderBadge(data.language)}
+  ## Contributeind
   // yes or no - if no - empty string
   ## Tests
   ## Questions 
