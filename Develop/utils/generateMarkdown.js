@@ -5,7 +5,9 @@ function renderLicenseBadge(license) {}
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
-function renderLicenseLink(license) {}
+function renderLicenseLink(data) {
+  return (`![badmath](https://img.shields.io/github/license/${data.github}/${data.githubrepo})`)
+}
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
@@ -13,30 +15,46 @@ function renderLicenseSection(license) {}
 
 function renderBadge(data) {
   console.log('called')
-  console.log('data.language')
-  return (`![badmath](https://img.shields.io/badge/language-${data.language}-blue)`)
-}
+  console.log(data.language)
+  // return (`![badmath](https://img.shields.io/badge/language-${data.language}-blue)`)
+      for(let i=0; i < data.language.length; i++){
+            (console.log(data.language))
+            return (`![badmath](https://img.shields.io/badge/language-${data.language}-blue)`)
+      }
+
+    // data.map(({language}) =>{
+    //   return (`![badmath](https://img.shields.io/badge/language-${data.language}-blue)`)
+
+    // })
+  };
+
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data){
   return `
-  # Title: ${data.title}
+  # Title: ${data.githubrepo}
   ## Description: 
+  ${data.description}
   ## Table of contents
-  - [Installation] (#installation)
-  // repeat for other sections
-  ## License 
-  // return none/"" or badge url from render function
-  // Badge URLS based on type input https://img.shields.io/badge/MIT-license-red used as boiler plate
-  ## Badge
-  ${renderBadge(data.language)}
-  ## Contributeind
-  // yes or no - if no - empty string
-  ## Tests
-  ## Questions 
-  // git hub link to profile
-  // instructions on how to touch base --- based on checkbox answer from previous
+  - [License](#license)
+  - [Badge](#badge)
+  - [Contribute](#contribute)
+  - [Tests](#test)
+  - [Questions](#questions)
 
+  ## License
+  ${renderLicenseLink(data)}
+
+  ## Badge
+  ${renderBadge(data)}
+  ## Contribute
+  
+  ## Tests
+
+  ## Questions 
+  // can i enter an email and phone question based on answer to contact question?
+  Please contact me via ${data.questions} with additional questions.
+  https://github.com/${data.github}?tab=repositories
 `;
 }
 

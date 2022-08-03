@@ -32,6 +32,18 @@ const questions = () => {
         }
     },
     {
+        type:'input',
+        name:'githubrepo',
+        message: 'Please enter repository name.(Required)',
+        validate: githubrepoInput => {
+            if (githubrepoInput){
+                return true;
+            }else{
+                console.log('Please enter the repository name.')
+            }
+        }
+    },
+    {
         type: 'input',
         name: 'email',
         message: 'Enter your email address. (Required)',
@@ -42,12 +54,6 @@ const questions = () => {
                 console.log('Please enter your email address!')
             }
         }
-    },
-
-    {
-        type: 'input',
-        name: 'title',
-        message: 'Enter your repo title.'
     },
 
     {
@@ -69,18 +75,27 @@ const questions = () => {
     },
 
     {
-        type: 'input',
+        type: 'checkbox',
         name: 'language',
-        message:'What is the primary language?'
+        choices: [
+        {name: 'Javascript', value:'Javascript'},
+        {name:'CSS', value:'CSS'},
+        {name: 'HTML', value: 'HTML'},
+        ],
     },
 
     // {
     //     // yes/no question for contributions --- lead --- input how contribute question
     // },
 
-    // {
-    //     // input tests question
-    // },
+    {
+        type: 'checkbox',
+        name:'questions',
+        choices: [
+            {name: 'email', value:'email'},
+            {name: 'phone', value:'phone'},
+        ]
+    },
 
 
     ]).then (function (userInput){
