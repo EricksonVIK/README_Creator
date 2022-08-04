@@ -22,52 +22,61 @@ function renderBadge(data) {
       }
   };
 
-function renderContribution(data){
+function renderEmpty(data){
   console.log(data)
-  if (data.confirmUsage === false){
-    return '';
-  } else {
-    return`
-    ## Usage
-    ${data.usage}
-    `
+  if (data.confirmContribute === false){
+    return data.contribute = "";
   };
+
+  if (data.confirmUsage === false){
+    return data.usage = ""
+  // } else {
+  //   return `${data.usage}`
+  };
+
+  if (data.addContactConfirm === false){
+    return data.addContact === ""
+  } else{
+    return `${data.addContact}`
+  };
+
 }
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data){
   return `
   # Title: ${data.githubrepo}
+
+  ${renderBadge(data)}
   ## Description 
   ${data.description}
+
   ## Table of contents
-  - [License](#license)
-  - [Badge](#badge)
+  - [Usage](#usage)
   - [Contribute](#contribute)
-  - [Tests](#test)
   - [Questions](#questions)
+  - [Suggestions](#suggestions)
+  - [License](#license)
+
+  ## Usage
+  ${renderEmpty(data)}
+
+  ## Contribute
+  ${renderEmpty(data)}
+
+  ## Questions 
+  GitHub: https://github.com/${data.github}?tab=repositories
+
+  ## Suggestions
+  
+  Contact Info: </br>
+  [${data.email}](mailto:${data.email})
+  ${renderEmpty(data)}
 
   ## License
+
   ${renderLicenseLink(data)}
 
-  ## Badge
-  ${renderBadge(data)}
-  ## Contribute
-  ${data.contribute}
-  ## Tests
-  ${data.tests}
-
-  ${renderContribution(data)}
-  ## Questions 
-  Please contact me via ${data.questions} with additional questions.
-
-  ${data.email}
-
-  ${data.addContact}
-
-  ${data.number}
-
-  https://github.com/${data.github}?tab=repositories
 `;
 }
 

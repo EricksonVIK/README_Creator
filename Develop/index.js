@@ -7,6 +7,10 @@ const { resolve } = require('path');
 // TODO: Create an array of questions for user input
 // questions = user prompts
 const questions = () => {
+    console.log(`
+    ====================
+    Add Your Information
+    ====================`)
     inquirer.prompt ([
         // NAME
     {
@@ -34,20 +38,7 @@ const questions = () => {
             }
         }
     },
-        // GitHub Repository Name
-    {
-        type:'input',
-        name:'githubrepo',
-        message: 'Please enter repository name.(Required)',
-        validate: githubrepoInput => {
-            if (githubrepoInput){
-                return true;
-            }else{
-                console.log('Please enter the repository name.')
-            }
-        }
-    },
-        // Email address
+    // Email address
     {
         type: 'input',
         name: 'email',
@@ -60,19 +51,19 @@ const questions = () => {
             }
         }
     },
-        // Phone Number
-    {
-        type:'confirm',
-        name: 'conirmNumber',
-        message: 'Would you like to add a phone number?',
-        default: false,
-    },
-    {
-        type: 'input',
-        name: 'number',
-        message: 'What is your contact number?',
-        when: ({confirmNumber}) => confirmNumber
-    },
+    //     // Phone Number - commenting out in lieu of add contact information
+    // {
+    //     type:'confirm',
+    //     name: 'conirmNumber',
+    //     message: 'Would you like to add a phone number?',
+    //     default: false,
+    // },
+    // {
+    //     type: 'input',
+    //     name: 'number',
+    //     message: 'What is your contact number?',
+    //     when: ({confirmNumber}) => confirmNumber
+    // },
         // Additional Contact Information
     {
         type: 'confirm',
@@ -84,7 +75,21 @@ const questions = () => {
         type: 'input',
         name: 'addContact',
         message: 'Please enter additional contact information.',
-        when: ({addContactConfirm}) => addContactConfirm
+        when: ({addContactConfirm}) => addContactConfirm,
+    },
+
+        // GitHub Repository Name
+    {
+        type:'input',
+        name:'githubrepo',
+        message: 'Please enter repository name.(Required)',
+        validate: githubrepoInput => {
+            if (githubrepoInput){
+                return true;
+            }else{
+                console.log('Please enter the repository name.')
+            }
+        }
     },
         // Project Description
     {
@@ -112,7 +117,21 @@ const questions = () => {
         message: 'Please describe the needed steps to install your project.',
         when:({confirmInstall}) => confirmInstall
     },
-        // Usage Information
+        // Contribution Information
+    {
+        type: 'confirm',
+        name: 'confirmContribute',
+        message: 'Would you like to enter "Contribute" information?',
+        default: true
+    },
+    {
+        type: 'input',
+        name: 'contribute',
+        message: 'Please add info on preferred method to contribute.',
+        when: ({confirmContribute})=> confirmContribute
+    },
+
+    // Usage Information
     {
         type: 'confirm',
         name: 'confirmUsage',
@@ -125,6 +144,7 @@ const questions = () => {
         message: 'Please provide instructions and example usage.',
         when: ({confirmUsage})=> confirmUsage
     },
+        
         // Language for Badge (Is there a way to loop over and get 1 per?)
     {
         type: 'checkbox',
@@ -139,16 +159,16 @@ const questions = () => {
     //     default: true,
     // },
 
-    {
-        type: 'checkbox',
-        name:'questions',
-        choices: [
-            {name: 'email', value:'email'},
-            {name: 'phone', value:'phone'},
-            {name: 'additional', value:'additional'}
-        ],
-        // when: ({confirmcontact}) => confirmcontact
-    },
+    // {
+    //     type: 'checkbox',
+    //     name:'questions',
+    //     choices: [
+    //         {name: 'email', value:'email'},
+    //         {name: 'phone', value:'phone'},
+    //         {name: 'additional', value:'additional'}
+    //     ],
+    //     // when: ({confirmcontact}) => confirmcontact
+    // },
 
 
     ]).then (function (userInput){

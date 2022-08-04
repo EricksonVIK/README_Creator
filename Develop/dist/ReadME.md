@@ -1,34 +1,33 @@
 
-  # Title: c
+  # Title: yodaim
+
+  ![badmath](https://img.shields.io/badge/language-JavaScript-blue)
   ## Description 
-  se
+  testing testing
+
   ## Table of contents
-  - [License](#license)
-  - [Badge](#badge)
+  - [Usage](#usage)
   - [Contribute](#contribute)
-  - [Tests](#test)
   - [Questions](#questions)
+  - [Suggestions](#suggestions)
+  - [License](#license)
+
+  ## Usage
+  undefined
+
+  ## Contribute
+  
+
+  ## Questions 
+  GitHub: https://github.com/ericksonVik?tab=repositories
+
+  ## Suggestions
+  
+  Contact Info: </br>
+  [ericksonvik](mailto:ericksonvik)
+  
 
   ## License
-  ![badmath](https://img.shields.io/github/license/c/c)
 
-  ## Badge
-  ![badmath](https://img.shields.io/badge/language-JavaScript-blue)
-  ## Contribute
-  undefined
-  ## Tests
-  undefined
+  ![badmath](https://img.shields.io/github/license/ericksonVik/yodaim)
 
-  
-    ## Usage
-    alkdjf
-  ## Questions 
-  Please contact me via email with additional questions.
-
-  c
-
-  undefined
-
-  undefined
-
-  https://github.com/c?tab=repositories
