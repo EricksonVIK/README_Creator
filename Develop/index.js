@@ -2,11 +2,13 @@
 // inquirer 8.2.4 and related packages installed
 const inquirer = require('inquirer');
 const generateMarkdown = require("./utils/generateMarkdown.js")
-const fs = require("fs")
+const fs = require("fs");
+const { resolve } = require('path');
 // TODO: Create an array of questions for user input
 // questions = user prompts
 const questions = () => {
     inquirer.prompt ([
+        // NAME
     {
         type: 'input',
         name: 'name',
@@ -19,6 +21,7 @@ const questions = () => {
             }
         }
     },
+        // GitHub User Name
     {
         type: 'input',
         name: 'github',
@@ -31,6 +34,7 @@ const questions = () => {
             }
         }
     },
+        // GitHub Repository Name
     {
         type:'input',
         name:'githubrepo',
@@ -43,6 +47,7 @@ const questions = () => {
             }
         }
     },
+        // Email address
     {
         type: 'input',
         name: 'email',
@@ -55,37 +60,83 @@ const questions = () => {
             }
         }
     },
-
+        // Phone Number
+    {
+        type:'confirm',
+        name: 'conirmNumber',
+        message: 'Would you like to add a phone number?',
+        default: false,
+    },
+    {
+        type: 'input',
+        name: 'number',
+        message: 'What is your contact number?',
+        when: ({confirmNumber}) => confirmNumber
+    },
+        // Additional Contact Information
+    {
+        type: 'confirm',
+        name:'addContactConfirm',
+        message: 'Would you like to enter additional contact information?',
+        default: false
+    },
+    {
+        type: 'input',
+        name: 'addContact',
+        message: 'Please enter additional contact information.',
+        when: ({addContactConfirm}) => addContactConfirm
+    },
+        // Project Description
     {
         type: 'input',
         name:'description',
-        message: 'Please add a description of your project.'
+        message: 'Please add a description of your project. (Required)',
+        validate: descriptionInput => {
+            if (descriptionInput) {
+                return true
+            } else {
+                console.log('Please enter a repo description.')
+            }
+        }
     },
-
+        // Installation Information
+    {
+        type: 'confirm',
+        name: 'confirmInstall',
+        default: true,
+        message: 'Would you like to enter "Installation" information?'
+    },
     {
         type: 'input',
         name: 'installation',
-        message: 'Please describe the needed steps to install your project.'
+        message: 'Please describe the needed steps to install your project.',
+        when:({confirmInstall}) => confirmInstall
     },
-
+        // Usage Information
+    {
+        type: 'confirm',
+        name: 'confirmUsage',
+        message: 'Would you like to enter "Usage" information?',
+        default: true
+    },
     {
         type: 'input',
         name: 'usage',
-        message: 'Please provide instructions and example usage.'
+        message: 'Please provide instructions and example usage.',
+        when: ({confirmUsage})=> confirmUsage
     },
-
+        // Language for Badge (Is there a way to loop over and get 1 per?)
     {
         type: 'checkbox',
         name: 'language',
-        choices: [
-        {name: 'Javascript', value:'Javascript'},
-        {name:'CSS', value:'CSS'},
-        {name: 'HTML', value: 'HTML'},
-        ],
+        choices: ['JavaScript', 'HTML', 'CSS', 'ES6', 'jQuery', 'Bootstrap', 'Node'],
     },
 
     // {
-    //     // yes/no question for contributions --- lead --- input how contribute question
+    //     type:'confirm',
+    //     name:'confirmcontact',
+    //     message: 'Would you like to add contact information?',
+    //     default: true,
     // },
 
     {
@@ -94,7 +145,9 @@ const questions = () => {
         choices: [
             {name: 'email', value:'email'},
             {name: 'phone', value:'phone'},
-        ]
+            {name: 'additional', value:'additional'}
+        ],
+        // when: ({confirmcontact}) => confirmcontact
     },
 
 
@@ -106,6 +159,7 @@ const questions = () => {
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
     fs.writeFileSync (fileName, data);
+    console.log('File Created!')
 }
 
 

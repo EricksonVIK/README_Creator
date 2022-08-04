@@ -18,22 +18,27 @@ function renderBadge(data) {
   console.log(data.language)
   // return (`![badmath](https://img.shields.io/badge/language-${data.language}-blue)`)
       for(let i=0; i < data.language.length; i++){
-            (console.log(data.language))
             return (`![badmath](https://img.shields.io/badge/language-${data.language}-blue)`)
       }
-
-    // data.map(({language}) =>{
-    //   return (`![badmath](https://img.shields.io/badge/language-${data.language}-blue)`)
-
-    // })
   };
 
+function renderContribution(data){
+  console.log(data)
+  if (data.confirmUsage === false){
+    return '';
+  } else {
+    return`
+    ## Usage
+    ${data.usage}
+    `
+  };
+}
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data){
   return `
   # Title: ${data.githubrepo}
-  ## Description: 
+  ## Description 
   ${data.description}
   ## Table of contents
   - [License](#license)
@@ -48,12 +53,20 @@ function generateMarkdown(data){
   ## Badge
   ${renderBadge(data)}
   ## Contribute
-  
+  ${data.contribute}
   ## Tests
+  ${data.tests}
 
+  ${renderContribution(data)}
   ## Questions 
-  // can i enter an email and phone question based on answer to contact question?
   Please contact me via ${data.questions} with additional questions.
+
+  ${data.email}
+
+  ${data.addContact}
+
+  ${data.number}
+
   https://github.com/${data.github}?tab=repositories
 `;
 }
