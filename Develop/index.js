@@ -130,32 +130,12 @@ const questions = () => {
         when: ({confirmUsage})=> confirmUsage
     },
         
-        // Language for Badge (Is there a way to loop over and get 1 per?)
-    {
-        type: 'checkbox',
-        name: 'language',
-        choices: ['JavaScript', 'HTML', 'CSS'],
-    },
-
-    // {
-    //     type:'confirm',
-    //     name:'confirmcontact',
-    //     message: 'Would you like to add contact information?',
-    //     default: true,
-    // },
-
+        // Language for Badge (Commenting out for now, displaying sporadically)
     // {
     //     type: 'checkbox',
-    //     name:'questions',
-    //     choices: [
-    //         {name: 'email', value:'email'},
-    //         {name: 'phone', value:'phone'},
-    //         {name: 'additional', value:'additional'}
-    //     ],
-    //     // when: ({confirmcontact}) => confirmcontact
+    //     name: 'language',
+    //     choices: ['JavaScript', 'HTML', 'CSS'],
     // },
-
-
     ]).then (function (userInput){
         const readmedata = generateMarkdown (userInput);
         writeToFile("dist/ReadME.md", readmedata)
