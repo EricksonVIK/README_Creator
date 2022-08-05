@@ -1,73 +1,113 @@
-// need the fs require
-// TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
-function renderLicenseBadge(license) {}
+const badge = [
+  {
+    name:'JavaScript',
+    link: '![badmath](https://img.shields.io/badge/language-JavaScript-blue)'
+  },  
+  {
+    name:'HTML',
+    link: '![badmath](https://img.shields.io/badge/language-HTML-red)'
+  },
+  {
+    name: 'CSS',
+    link: '![badmath](https://img.shields.io/badge/language-CSS-brightgreen)'
+  }
+]
 
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
+// Return license link
 function renderLicenseLink(data) {
   return (`![badmath](https://img.shields.io/github/license/${data.github}/${data.githubrepo})`)
 }
 
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
-function renderLicenseSection(license) {}
-
-function renderBadge(data) {
-  console.log('called')
-  console.log(data.language)
-  // return (`![badmath](https://img.shields.io/badge/language-${data.language}-blue)`)
+// Return Language badges
+function renderBadgeJS(data) {
       for(let i=0; i < data.language.length; i++){
-            return (`![badmath](https://img.shields.io/badge/language-${data.language}-blue)`)
-      }
-  };
+        console.log('in the for')
+          if (data.language[i] == 'JavaScript'){
+            console.log(badge[0].link)
+            return `${badge[0].link}`
+          }
+        }
+}
 
-function renderContribution(data){
-  console.log(data)
-  if (data.confirmUsage === false){
-    return '';
+function renderBadgeHTML(data) {
+  // console.log(badge)
+
+      for(let i=0; i < data.language.length; i++){
+        console.log('in the for')
+          if (data.language[i] == 'HTML'){
+            console.log(badge[1].link)
+            return `${badge[1].link}`
+          }
+        }
+}
+
+function renderBadgeCSS(data) {
+      for(let i=0; i < data.language.length; i++){
+        console.log('in the for')
+          if (data.language[i] == 'CSS'){
+            console.log(badge[2].link)
+            return `${badge[2].link}`
+          }
+        }
+}
+
+// return empty if false, input date if true
+function renderEmptyContribute(data){
+  if (data.confirmContribute === false){
+    return data.contribute = "";
   } else {
-    return`
-    ## Usage
-    ${data.usage}
-    `
+    return `${data.contribute}`
   };
 }
 
-// TODO: Create a function to generate markdown for README
+function renderEmptyUsage(data){
+  if (data.confirmUsage === false){
+    return data.usage = ""
+  } else{
+    return `${data.usage}`
+  };
+}
+
+function renderEmptyContact(data){
+  if (data.addContactConfirm === false){
+    return data.addContact = ""
+  } else{
+    return `${data.addContact}`
+  };
+}
+
+// generate the Readme
 function generateMarkdown(data){
+  console.log(data)
   return `
-  # Title: ${data.githubrepo}
+  # Title: ${data.githubrepo} ![](https://img.shields.io/github/languages/count/${data.github}/${data.githubrepo})
+
+  ${renderBadgeJS(data)}
+  ${renderBadgeHTML(data)}
+  ${renderBadgeCSS(data)}
   ## Description 
   ${data.description}
+
   ## Table of contents
-  - [License](#license)
-  - [Badge](#badge)
+  - [Usage](#usage)
   - [Contribute](#contribute)
-  - [Tests](#test)
-  - [Questions](#questions)
+  - [Contact](#contact)
+  - [License](#license)
+
+  ## Usage
+  ${renderEmptyUsage(data)}
+
+  ## Contribute
+  ${renderEmptyContribute(data)}
+
+  ## Contact Information
+  ![](https://github.com/${data.github}?tab=repositories) </br>
+  [${data.email}](mailto:${data.email}) </br>
+  ${renderEmptyContact(data)}
 
   ## License
   ${renderLicenseLink(data)}
 
-  ## Badge
-  ${renderBadge(data)}
-  ## Contribute
-  ${data.contribute}
-  ## Tests
-  ${data.tests}
-
-  ${renderContribution(data)}
-  ## Questions 
-  Please contact me via ${data.questions} with additional questions.
-
-  ${data.email}
-
-  ${data.addContact}
-
-  ${data.number}
-
-  https://github.com/${data.github}?tab=repositories
 `;
 }
 

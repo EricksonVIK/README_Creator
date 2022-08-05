@@ -1,34 +1,30 @@
 
-  # Title: c
+  # Title: Weather-Finder ![](https://img.shields.io/github/languages/count/EricksonVIK/Weather-Finder)
+
+  ![badmath](https://img.shields.io/badge/feature-JavaScript-blue)
+  ![badmath](https://img.shields.io/badge/feature-HTML-red)
+  ![badmath](https://img.shields.io/badge/feature-CSS-brightgreen)
   ## Description 
-  se
+  api fetch
+
   ## Table of contents
-  - [License](#license)
-  - [Badge](#badge)
+  - [Usage](#usage)
   - [Contribute](#contribute)
-  - [Tests](#test)
-  - [Questions](#questions)
+  - [Contact](#contact)
+  - [License](#license)
+
+  ## Usage
+  
+
+  ## Contribute
+  ![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)] Additional:
+  aldkjfaldfkj
+
+  ## Contact Information
+  ![](https://github.com/EricksonVIK?tab=repositories) </br>
+  [chris](mailto:chris) </br>
+  
 
   ## License
-  ![badmath](https://img.shields.io/github/license/c/c)
+  ![badmath](https://img.shields.io/github/license/EricksonVIK/Weather-Finder)
 
-  ## Badge
-  ![badmath](https://img.shields.io/badge/language-JavaScript-blue)
-  ## Contribute
-  undefined
-  ## Tests
-  undefined
-
-  
-    ## Usage
-    alkdjf
-  ## Questions 
-  Please contact me via email with additional questions.
-
-  c
-
-  undefined
-
-  undefined
-
-  https://github.com/c?tab=repositories

@@ -1,12 +1,14 @@
-// TODO: Include packages needed for this application
 // inquirer 8.2.4 and related packages installed
 const inquirer = require('inquirer');
 const generateMarkdown = require("./utils/generateMarkdown.js")
 const fs = require("fs");
 const { resolve } = require('path');
-// TODO: Create an array of questions for user input
 // questions = user prompts
 const questions = () => {
+    console.log(`
+    ====================
+    Add Your Information
+    ====================`)
     inquirer.prompt ([
         // NAME
     {
@@ -34,20 +36,7 @@ const questions = () => {
             }
         }
     },
-        // GitHub Repository Name
-    {
-        type:'input',
-        name:'githubrepo',
-        message: 'Please enter repository name.(Required)',
-        validate: githubrepoInput => {
-            if (githubrepoInput){
-                return true;
-            }else{
-                console.log('Please enter the repository name.')
-            }
-        }
-    },
-        // Email address
+    // Email address
     {
         type: 'input',
         name: 'email',
@@ -60,19 +49,6 @@ const questions = () => {
             }
         }
     },
-        // Phone Number
-    {
-        type:'confirm',
-        name: 'conirmNumber',
-        message: 'Would you like to add a phone number?',
-        default: false,
-    },
-    {
-        type: 'input',
-        name: 'number',
-        message: 'What is your contact number?',
-        when: ({confirmNumber}) => confirmNumber
-    },
         // Additional Contact Information
     {
         type: 'confirm',
@@ -84,7 +60,21 @@ const questions = () => {
         type: 'input',
         name: 'addContact',
         message: 'Please enter additional contact information.',
-        when: ({addContactConfirm}) => addContactConfirm
+        when: ({addContactConfirm}) => addContactConfirm,
+    },
+
+        // GitHub Repository Name
+    {
+        type:'input',
+        name:'githubrepo',
+        message: 'Please enter repository name.(Required)',
+        validate: githubrepoInput => {
+            if (githubrepoInput){
+                return true;
+            }else{
+                console.log('Please enter the repository name.')
+            }
+        }
     },
         // Project Description
     {
@@ -99,20 +89,34 @@ const questions = () => {
             }
         }
     },
-        // Installation Information
+        // Installation Information - potential future question
+    // {
+    //     type: 'confirm',
+    //     name: 'confirmInstall',
+    //     default: true,
+    //     message: 'Would you like to enter "Installation" information?'
+    // },
+    // {
+    //     type: 'input',
+    //     name: 'installation',
+    //     message: 'Please describe the needed steps to install your project.',
+    //     when:({confirmInstall}) => confirmInstall
+    // },
+        // Contribution Information
     {
         type: 'confirm',
-        name: 'confirmInstall',
-        default: true,
-        message: 'Would you like to enter "Installation" information?'
+        name: 'confirmContribute',
+        message: 'Would you like to enter "Contribute" information?',
+        default: true
     },
     {
         type: 'input',
-        name: 'installation',
-        message: 'Please describe the needed steps to install your project.',
-        when:({confirmInstall}) => confirmInstall
+        name: 'contribute',
+        message: 'Please on contribution preferences. (ie, who is able and how)',
+        when: ({confirmContribute})=> confirmContribute
     },
-        // Usage Information
+
+    // Usage Information
     {
         type: 'confirm',
         name: 'confirmUsage',
@@ -125,11 +129,12 @@ const questions = () => {
         message: 'Please provide instructions and example usage.',
         when: ({confirmUsage})=> confirmUsage
     },
+        
         // Language for Badge (Is there a way to loop over and get 1 per?)
     {
         type: 'checkbox',
         name: 'language',
-        choices: ['JavaScript', 'HTML', 'CSS', 'ES6', 'jQuery', 'Bootstrap', 'Node'],
+        choices: ['JavaScript', 'HTML', 'CSS'],
     },
 
     // {
@@ -139,16 +144,16 @@ const questions = () => {
     //     default: true,
     // },
 
-    {
-        type: 'checkbox',
-        name:'questions',
-        choices: [
-            {name: 'email', value:'email'},
-            {name: 'phone', value:'phone'},
-            {name: 'additional', value:'additional'}
-        ],
-        // when: ({confirmcontact}) => confirmcontact
-    },
+    // {
+    //     type: 'checkbox',
+    //     name:'questions',
+    //     choices: [
+    //         {name: 'email', value:'email'},
+    //         {name: 'phone', value:'phone'},
+    //         {name: 'additional', value:'additional'}
+    //     ],
+    //     // when: ({confirmcontact}) => confirmcontact
+    // },
 
 
     ]).then (function (userInput){

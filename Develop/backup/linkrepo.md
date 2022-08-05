@@ -1,4 +1,4 @@
-# ReadmeGen
+# ReadmeGen -- Website repo for code application
 
 ![badmath](https://img.shields.io/github/languages/top/lernantino/badmath)
 
@@ -17,3 +17,7 @@ Generic repo license pull
 ![badmath](https://img.shields.io/github/license/EricksonVIK/YodaIM)
 
 https://img.shields.io/badge/MIT-license-red
+
+https://img.shields.io/github/languages/top/EricksonVIK/YodaIM
+
+https://img.shields.io/github/languages/count/ericksonVIK/EricksonPortfolio
