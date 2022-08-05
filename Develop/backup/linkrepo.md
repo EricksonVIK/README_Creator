@@ -1,4 +1,4 @@
-# ReadmeGen
+# ReadmeGen -- Website repo for code application
 
 ![badmath](https://img.shields.io/github/languages/top/lernantino/badmath)
 
