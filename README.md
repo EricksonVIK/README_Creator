@@ -11,17 +11,20 @@
   - [Usage](#usage)
   - [Contribute](#contribute)
   - [Contact](#contact)
+  - [Development](#development)
   - [License](#license)
 
   ## Usage
-  Node JS and NPM inquire are required for the application. Once the needed packages are located in a local repo, enter node index.js to initiate the application.  Follow the prompts.  You will need your GitHub username, GitHub Repository name, any additional contact, usage, and contribution information to be displayed.
+  Node JS and NPM inquire are required for the application. Once the needed packages are located in a local repo, enter node index.js to initiate the application.  Follow the prompts.  You will need your GitHub username, GitHub Repository name, any additional contact, usage, and contribution information to be displayed. Final prodect will be written to dist folder under Develop.  Data will be console logged in the terminal for reference.
+  Sample Video: [](Develop/images/ReadME_Creator%20Sample.mp4)
+  Deployed Link: https://ericksonvik.github.io/README_Creator/
 
   ## Contribute
   Open to contributions. Consider initiating a request or message through the contact information below to make suggestions.
 
   ## Development
-  - abiity to add a screenshot
-  - additiona fields such as Tests, Badge per language tag, and an option for user topic input
+  - ability to add a screenshot
+  - additional fields such as Tests, Badge per language tag, and an option for user topic input
   - additional question logic 
   
 
@@ -32,4 +35,7 @@
 
   ## License
   ![badmath](https://img.shields.io/github/license/EricksonVIK/README_Creator)
+
+  ## Screenshot
+  ![](Develop/images/ReadME_Creator%20Screenshot.png)
 
