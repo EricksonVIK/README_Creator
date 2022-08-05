@@ -1,10 +1,8 @@
-// TODO: Include packages needed for this application
 // inquirer 8.2.4 and related packages installed
 const inquirer = require('inquirer');
 const generateMarkdown = require("./utils/generateMarkdown.js")
 const fs = require("fs");
 const { resolve } = require('path');
-// TODO: Create an array of questions for user input
 // questions = user prompts
 const questions = () => {
     console.log(`
@@ -51,19 +49,6 @@ const questions = () => {
             }
         }
     },
-    //     // Phone Number - commenting out in lieu of add contact information
-    // {
-    //     type:'confirm',
-    //     name: 'conirmNumber',
-    //     message: 'Would you like to add a phone number?',
-    //     default: false,
-    // },
-    // {
-    //     type: 'input',
-    //     name: 'number',
-    //     message: 'What is your contact number?',
-    //     when: ({confirmNumber}) => confirmNumber
-    // },
         // Additional Contact Information
     {
         type: 'confirm',
@@ -104,19 +89,19 @@ const questions = () => {
             }
         }
     },
-        // Installation Information
-    {
-        type: 'confirm',
-        name: 'confirmInstall',
-        default: true,
-        message: 'Would you like to enter "Installation" information?'
-    },
-    {
-        type: 'input',
-        name: 'installation',
-        message: 'Please describe the needed steps to install your project.',
-        when:({confirmInstall}) => confirmInstall
-    },
+        // Installation Information - potential future question
+    // {
+    //     type: 'confirm',
+    //     name: 'confirmInstall',
+    //     default: true,
+    //     message: 'Would you like to enter "Installation" information?'
+    // },
+    // {
+    //     type: 'input',
+    //     name: 'installation',
+    //     message: 'Please describe the needed steps to install your project.',
+    //     when:({confirmInstall}) => confirmInstall
+    // },
         // Contribution Information
     {
         type: 'confirm',
@@ -127,7 +112,7 @@ const questions = () => {
     {
         type: 'input',
         name: 'contribute',
-        message: 'Please add info on preferred method to contribute.',
+        message: 'Please on contribution preferences. (ie, who is able and how)',
         when: ({confirmContribute})=> confirmContribute
     },
 
@@ -149,7 +134,7 @@ const questions = () => {
     {
         type: 'checkbox',
         name: 'language',
-        choices: ['JavaScript', 'HTML', 'CSS', 'ES6', 'jQuery', 'Bootstrap', 'Node'],
+        choices: ['JavaScript', 'HTML', 'CSS'],
     },
 
     // {
