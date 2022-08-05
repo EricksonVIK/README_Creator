@@ -19,37 +19,45 @@ function renderLicenseLink(data) {
 }
 
 // Return Language badges
-function renderBadgeJS(data) {
-      for(let i=0; i < data.language.length; i++){
-        console.log('in the for')
-          if (data.language[i] == 'JavaScript'){
-            console.log(badge[0].link)
-            return `${badge[0].link}`
-          }
-        }
-}
+// was acting sporadically, will return to this bug in the future
+// function renderBadgeJS(data) {
+//   console.log('funct 1')
+//       for(let i=0; i < data.language.length; i++){
+//           if (data.language[i] === 'JavaScript'){
+//             console.log(badge[0].link)
+//             return `![badmath](https://img.shields.io/badge/language-JavaScript-blue)`
+//           } 
+//           else {
+//             return ""
+//           }
+//         }
+// }
 
-function renderBadgeHTML(data) {
-  // console.log(badge)
+// function renderBadgeHTML(data) {
+//   console.log('funct 2')
+//       for(let i=0; i < data.language.length; i++){
+//           if (data.language[i] === 'HTML'){
+//             console.log(badge[1].link)
+//             return `![badmath](https://img.shields.io/badge/language-HTML-red)`
+//           } 
+//           else {
+//             return ""
+//           }
+//         }
+// }
 
-      for(let i=0; i < data.language.length; i++){
-        console.log('in the for')
-          if (data.language[i] == 'HTML'){
-            console.log(badge[1].link)
-            return `${badge[1].link}`
-          }
-        }
-}
-
-function renderBadgeCSS(data) {
-      for(let i=0; i < data.language.length; i++){
-        console.log('in the for')
-          if (data.language[i] == 'CSS'){
-            console.log(badge[2].link)
-            return `${badge[2].link}`
-          }
-        }
-}
+// function renderBadgeCSS(data) {
+//   console.log('funct 3')
+//       for(let i=0; i < data.language.length; i++){
+//           if (data.language[i] === 'CSS'){
+//             console.log(badge[2].link)
+//             return `![badmath](https://img.shields.io/badge/language-CSS-brightgreen)`
+//           } 
+//           else {
+//             return ""
+//           }
+//         }
+// }
 
 // return empty if false, input date if true
 function renderEmptyContribute(data){
@@ -80,11 +88,10 @@ function renderEmptyContact(data){
 function generateMarkdown(data){
   console.log(data)
   return `
-  # Title: ${data.githubrepo} ![](https://img.shields.io/github/languages/count/${data.github}/${data.githubrepo})
+  # ${data.githubrepo} ![](https://img.shields.io/github/languages/count/${data.github}/${data.githubrepo})
 
-  ${renderBadgeJS(data)}
-  ${renderBadgeHTML(data)}
-  ${renderBadgeCSS(data)}
+  ![](https://img.shields.io/github/languages/top/${data.github}/${data.githubrepo})
+
   ## Description 
   ${data.description}
 
@@ -101,7 +108,7 @@ function generateMarkdown(data){
   ${renderEmptyContribute(data)}
 
   ## Contact Information
-  ![](https://github.com/${data.github}?tab=repositories) </br>
+  https://github.com/${data.github} </br>
   [${data.email}](mailto:${data.email}) </br>
   ${renderEmptyContact(data)}
 
