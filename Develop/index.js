@@ -142,13 +142,13 @@ const questions = () => {
     },
 
 
-    // license logic
+    // license logic maybe a when instead of validate?
     {
         type: 'confirm',
-        name: 'confirmCurrenticense',
+        name: 'currenticense',
         message: 'Has a license been applied to the repository?',
-        validate: function(confirmCurrentLicense){
-            if (confirmCurrentLicense === false){
+        validate: currentLicense => {
+            if (currentLicense === false){
                 inquirer.prompt [
                     {
                         type: 'confirm',
@@ -166,7 +166,7 @@ const questions = () => {
                 
                 ]
 
-            }  else if (confirmCurrentLicense === true){
+            }  else if (currentLicense === true){
                 return true
             }
         }
