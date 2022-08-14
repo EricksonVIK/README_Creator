@@ -15,8 +15,13 @@ const badge = [
 
 // Return license link
 function renderLicenseLink(data) {
-  return (`![badmath](https://img.shields.io/github/license/${data.github}/${data.githubrepo})`)
+  if (data.currenticense === true){
+    return (`![badmath](https://img.shields.io/github/license/${data.github}/${data.githubrepo})`)
+  } else if (data.confirmLicense === true){
+    return (`![badmath](https://img.shields.io/static/v1?label=License&message=${data.licenseChoice.title}&color=Greeen)`)
+  }
 }
+
 
 // Return Language badges
 // was acting sporadically, will return to this bug in the future

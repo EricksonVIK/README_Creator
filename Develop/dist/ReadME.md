@@ -24,5 +24,5 @@
   
 
   ## License
-  ![badmath](https://img.shields.io/github/license/c/c)
+  ![badmath](https://img.shields.io/static/v1?label=License&message=gpl-2.0&color=Greeen)
 
