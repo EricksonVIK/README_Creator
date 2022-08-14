@@ -59,6 +59,9 @@ function renderLicenseLink(data) {
 //         }
 // }
 
+// if repo has a license -- render license badge function
+// if a license will be added -- render Future license badge
+
 // return empty if false, input date if true
 function renderEmptyContribute(data){
   if (data.confirmContribute === false){

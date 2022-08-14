@@ -3,6 +3,18 @@ const inquirer = require('inquirer');
 const generateMarkdown = require("./utils/generateMarkdown.js")
 const fs = require("fs");
 const { resolve } = require('path');
+
+// register plugin
+inquirer.registerPrompt('search-list', require('inquirer-search-list'));
+const licenseOptions = [
+    {title: 'apache-2.0'}, {title: 'afl-3.0'}, {title: 'artistic-2.0'},
+    {title: 'bsl-1.0'}, {title: 'bsd-2-clause'}, {title: 'bsd-3-clause-clear'},
+    {title: 'cc'}, {title: 'cc0-1.0'}, {title: 'cc-by-4.0'}, {title: 'cc-by-sa-4.0'},
+    {title: 'wtfpl'}, {title: 'ecl-2.0'}, {title: 'epl-2.0'}, {title: 'eupl-1.1'}, {title: 'agpl-3.0'},
+    {title: 'gpl'}, {title: 'gpl-2.0'}, {title: 'gpl-3.0'}, {title: 'lgpl'}, {title: 'lgpl-2.1'}, 
+    {title: 'lgpl-3.0'}, {title: 'isc'}, {title: 'lppl-1.3c'}, {title: 'ms-pl'}, {title: 'mit'}, {title:'mpl-2.0'}, 
+    {title: 'osl-3.0'}, {title: 'postgresql'}, {title: 'ofl-1.1'}, {title: 'ncsa'}, {title: 'unlicense'}, {title: 'zlib'}
+     ]
 // questions = user prompts
 const questions = () => {
     console.log(`
@@ -115,7 +127,6 @@ const questions = () => {
         message: 'Please on contribution preferences. (ie, who is able and how)',
         when: ({confirmContribute})=> confirmContribute
     },
-
     // Usage Information
     {
         type: 'confirm',
@@ -129,6 +140,51 @@ const questions = () => {
         message: 'Please provide instructions and example usage.',
         when: ({confirmUsage})=> confirmUsage
     },
+
+
+    // license logic
+    {
+        type: 'confirm',
+        name: 'confirmCurrenticense',
+        message: 'Has a license been applied to the repository?',
+        validate: function(confirmCurrentLicense){
+            if (confirmCurrentLicense === false){
+                inquirer.prompt [
+                    {
+                        type: 'confirm',
+                        name: 'confirmLicense',
+                        message: 'Will you be adding a license to the repo?',
+                        when: ({confirmCurrentLicense}) => confirmCurrentLicense
+                    },
+                    {
+                        type: 'search-list',
+                        name: 'licenseChoice',
+                        message: 'Please select a license. (Options revealed as you start typing.)',
+                        choices : licenseOptions.map(licenseOptions => ({name: licenseOptions.title, value: licenseOptions})),
+                        when: ({confirmLicense}) => confirmLicense
+                    }
+                
+                ]
+
+            }  else if (confirmCurrentLicense === true){
+                return true
+            }
+        }
+
+    },
+    // {
+    //     type: 'confirm',
+    //     name: 'confirmLicense',
+    //     message: 'Will you be adding a license to the repo?',
+    //     when: ({confirmCurrentLicense}) => confirmCurrentLicense
+    // },
+    // {
+    //     type: 'search-list',
+    //     name: 'licenseChoice',
+    //     message: 'Please select a license. (Options revealed as you start typing.)',
+    //     choices : licenseOptions.map(licenseOptions => ({name: licenseOptions.title, value: licenseOptions})),
+    //     when: ({confirmLicense}) => confirmLicense
+    // }
         
         // Language for Badge (Commenting out for now, displaying sporadically)
     // {

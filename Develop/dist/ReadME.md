@@ -1,10 +1,10 @@
 
-  # ReadME_Creator ![](https://img.shields.io/github/languages/count/EricksonVIK/ReadME_Creator)
+  # practice ![](https://img.shields.io/github/languages/count/ericksonvik/practice)
 
-  ![](https://img.shields.io/github/languages/top/EricksonVIK/ReadME_Creator)
+  ![](https://img.shields.io/github/languages/top/ericksonvik/practice)
 
   ## Description 
-  Area to describe your project
+  adf
 
   ## Table of contents
   - [Usage](#usage)
@@ -13,16 +13,16 @@
   - [License](#license)
 
   ## Usage
-  Area to describe app use
+  
 
   ## Contribute
-  Area to explain contribution preferences
+  
 
   ## Contact Information
-  https://github.com/EricksonVIK </br>
-  [ericksonVIK](mailto:ericksonVIK) </br>
+  https://github.com/ericksonvik </br>
+  [c@c.com](mailto:c@c.com) </br>
   
 
   ## License
-  ![badmath](https://img.shields.io/github/license/EricksonVIK/ReadME_Creator)
+  ![badmath](https://img.shields.io/github/license/ericksonvik/practice)
 
