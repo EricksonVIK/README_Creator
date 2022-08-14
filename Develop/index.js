@@ -145,32 +145,21 @@ const questions = () => {
     // license logic maybe a when instead of validate?
     {
         type: 'confirm',
-        name: 'currenticense',
+        name: 'currentLicense',
         message: 'Has a license been applied to the repository?',
-        validate: currentLicense => {
-            if (currentLicense === false){
-                inquirer.prompt [
-                    {
-                        type: 'confirm',
-                        name: 'confirmLicense',
-                        message: 'Will you be adding a license to the repo?',
-                        when: ({confirmCurrentLicense}) => confirmCurrentLicense
-                    },
-                    {
-                        type: 'search-list',
-                        name: 'licenseChoice',
-                        message: 'Please select a license. (Options revealed as you start typing.)',
-                        choices : licenseOptions.map(licenseOptions => ({name: licenseOptions.title, value: licenseOptions})),
-                        when: ({confirmLicense}) => confirmLicense
-                    }
-                
-                ]
-
-            }  else if (currentLicense === true){
-                return true
-            }
-        }
-
+    },
+    {
+        type: 'confirm',
+        name: 'confirmLicense',
+        message: 'Will you be adding a license to the repo?',
+        when: ({currentLicense}) =>  currentLicense === false
+    },
+    {
+        type: 'search-list',
+        name: 'licenseChoice',
+        message: 'Please select a license. (Options revealed as you start typing.)',
+        choices : licenseOptions.map(licenseOptions => ({name: licenseOptions.title, value: licenseOptions})),
+        when: ({confirmLicense}) => confirmLicense
     },
     // {
     //     type: 'confirm',

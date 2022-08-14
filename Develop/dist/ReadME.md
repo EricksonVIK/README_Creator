@@ -1,10 +1,10 @@
 
-  # Practice ![](https://img.shields.io/github/languages/count/ericksonvik/Practice)
+  # c ![](https://img.shields.io/github/languages/count/c/c)
 
-  ![](https://img.shields.io/github/languages/top/ericksonvik/Practice)
+  ![](https://img.shields.io/github/languages/top/c/c)
 
   ## Description 
-  asdfadsf
+  c
 
   ## Table of contents
   - [Usage](#usage)
@@ -19,10 +19,10 @@
   
 
   ## Contact Information
-  https://github.com/ericksonvik </br>
-  [c@c](mailto:c@c) </br>
+  https://github.com/c </br>
+  [c](mailto:c) </br>
   
 
   ## License
-  ![badmath](https://img.shields.io/github/license/ericksonvik/Practice)
+  ![badmath](https://img.shields.io/github/license/c/c)
 
