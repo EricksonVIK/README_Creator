@@ -39,5 +39,5 @@
   ![badmath](https://img.shields.io/github/license/EricksonVIK/README_Creator)
 
   ## Screenshot
-  ![](Develop/images/ReadME_Creator%20Screenshot.png)
+  ![](/images/ReadME_Creator%20Screenshot.png)
 
