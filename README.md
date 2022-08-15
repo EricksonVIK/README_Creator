@@ -18,7 +18,7 @@
   Node JS and NPM inquire are required for the application. Once the needed packages are located in a local repo, enter node index.js to initiate the application.  Follow the prompts.  You will need your GitHub username, GitHub Repository name, any additional contact, usage, and contribution information to be displayed. Final product will be written to dist folder under Develop.  Data will be console logged in the terminal for reference. </br>
   Badges for number of languages, top language, and license will be generated via the GitHub username and Repository. </br>
   In addition, user has the option to use the repository name to create the license badge or can add the license that will be applied to the repository. License options will be listed via inquirer-select-list, populated as user begins input.
-  Sample Video: https://drive.google.com/file/d/1f7NivfmHOJtW-OihN0NI0tEEK0KpSBAo/view </br>
+  Sample Video: https://drive.google.com/file/d/1xhUMitqlguF5881uvyctodVx688-Mf7A/view </br>
   Deployed Link: https://ericksonvik.github.io/README_Creator/
 
   ## Contribute
