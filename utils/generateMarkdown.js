@@ -75,7 +75,7 @@ function renderEmptyContact(data){
 
 // generate the Readme
 function generateMarkdown(data){
-  console.log(data)
+  console.table(data)
   return `
   # ${data.githubrepo} ${renderLanguageCountBadge (data)}
 
@@ -87,7 +87,7 @@ function generateMarkdown(data){
   ## Table of contents
   - [Usage](#usage)
   - [Contribute](#contribute)
-  - [Contact](#contact)
+  - [Contact Infomation](#contact)
   - [License](#license)
 
   ## Usage
@@ -96,7 +96,7 @@ function generateMarkdown(data){
   ## Contribute
   ${renderEmptyContribute(data)}
 
-  ## Contact Information
+  ## Contact 
   https://github.com/${data.github} </br>
   [${data.email}](mailto:${data.email}) </br>
   ${renderEmptyContact(data)}

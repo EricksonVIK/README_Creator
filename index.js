@@ -106,19 +106,6 @@ const questions = () => {
             }
         }
     },
-        // Installation Information - potential future question
-    // {
-    //     type: 'confirm',
-    //     name: 'confirmInstall',
-    //     default: true,
-    //     message: 'Would you like to enter "Installation" information?'
-    // },
-    // {
-    //     type: 'input',
-    //     name: 'installation',
-    //     message: 'Please describe the needed steps to install your project.',
-    //     when:({confirmInstall}) => confirmInstall
-    // },
         // Contribution Information
     {
         type: 'confirm',
@@ -146,7 +133,6 @@ const questions = () => {
         when: ({confirmUsage})=> confirmUsage
     },
 
-
     // license logic maybe a when instead of validate?
     {
         type: 'confirm',
@@ -166,26 +152,6 @@ const questions = () => {
         choices : licenseOptions.map(licenseOptions => ({name: licenseOptions.title, value: licenseOptions})),
         when: ({confirmLicense}) => confirmLicense
     },
-    // {
-    //     type: 'confirm',
-    //     name: 'confirmLicense',
-    //     message: 'Will you be adding a license to the repo?',
-    //     when: ({confirmCurrentLicense}) => confirmCurrentLicense
-    // },
-    // {
-    //     type: 'search-list',
-    //     name: 'licenseChoice',
-    //     message: 'Please select a license. (Options revealed as you start typing.)',
-    //     choices : licenseOptions.map(licenseOptions => ({name: licenseOptions.title, value: licenseOptions})),
-    //     when: ({confirmLicense}) => confirmLicense
-    // }
-        
-        // Language for Badge (Commenting out for now, displaying sporadically)
-    // {
-    //     type: 'checkbox',
-    //     name: 'language',
-    //     choices: ['JavaScript', 'HTML', 'CSS'],
-    // },
     ]).then (function (userInput){
         const readmedata = generateMarkdown (userInput);
         writeToFile("dist/ReadME.md", readmedata)
