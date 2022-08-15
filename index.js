@@ -18,9 +18,9 @@ const licenseOptions = [
 // questions = user prompts
 const questions = () => {
     console.log(`
-    ====================
+=============================
     Add Your Information
-    ====================`)
+=============================`)
     inquirer.prompt ([
         // NAME
     {
@@ -88,6 +88,11 @@ const questions = () => {
             }
         }
     },
+    {
+        type:'confirm',
+        name: 'repoType',
+        message: 'Is this a new repository?'
+    },
         // Project Description
     {
         type: 'input',
@@ -146,7 +151,7 @@ const questions = () => {
     {
         type: 'confirm',
         name: 'currentLicense',
-        message: 'Has a license been applied to the repository?',
+        message: 'Has a license been applied to the repository? (If Yes, final badge created based on active repo)',
     },
     {
         type: 'confirm',
